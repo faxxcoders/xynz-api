@@ -7,6 +7,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 app.enable("trust proxy");
 app.set("json spaces", 2);
+let creator = "Faxx"
 
 // Middleware untuk CORS
 app.use(cors());
@@ -89,19 +90,22 @@ async function blackboxAIChat(message) {
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
+app.get('/api', (req, res) => {
+  res.sendFile(path.join(__dirname, 'api.html'));
+});
 
 // Endpoint untuk ragBot
 app.get('/api/ragbot', async (req, res) => {
   try {
-    const message = req.query.message;
+    const message = req.query.text;
     if (!message) {
-      return res.status(400).json({ error: 'Parameter "message" tidak ditemukan' });
+      return res.status(400).json({ error: 'Parameter "text" tidak ditemukan' });
     }
     const response = await ragBot(message);
     res.status(200).json({
       status: 200,
-      creator: "siputzx",
-      data: { response }
+      creator,
+      result:  response
     });
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -113,13 +117,13 @@ app.get('/api/degreeguru', async (req, res) => {
   try {
     const { message }= req.query;
     if (!message) {
-      return res.status(400).json({ error: 'Parameter "message" tidak ditemukan' });
+      return res.status(400).json({ error: 'Parameter "text" tidak ditemukan' });
     }
     const response = await degreeGuru(message);
     res.status(200).json({
       status: 200,
-      creator: "siputzx",
-      data: { response }
+      creator,
+      result:  response
     });
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -129,15 +133,15 @@ app.get('/api/degreeguru', async (req, res) => {
 // Endpoint untuk pinecone
 app.get('/api/pinecone', async (req, res) => {
   try {
-    const message = req.query.message;
+    const message = req.query.text;
     if (!message) {
-      return res.status(400).json({ error: 'Parameter "message" tidak ditemukan' });
+      return res.status(400).json({ error: 'Parameter "text" tidak ditemukan' });
     }
     const response = await pinecone(message);
     res.status(200).json({
       status: 200,
-      creator: "siputzx",
-      data: { response }
+      creator,
+      result:  response
     });
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -147,15 +151,15 @@ app.get('/api/pinecone', async (req, res) => {
 // Endpoint untuk smartContract
 app.get('/api/smartcontract', async (req, res) => {
   try {
-    const message = req.query.message;
+    const message = req.query.text;
     if (!message) {
-      return res.status(400).json({ error: 'Parameter "message" tidak ditemukan' });
+      return res.status(400).json({ error: 'Parameter "text" tidak ditemukan' });
     }
     const response = await smartContract(message);
     res.status(200).json({
       status: 200,
-      creator: "siputzx",
-      data: { response }
+      creator,
+      result:  response
     });
   } catch (error) {
     res.status(500).json({ error: error.message });
@@ -165,15 +169,15 @@ app.get('/api/smartcontract', async (req, res) => {
 // Endpoint untuk blackboxAIChat
 app.get('/api/blackboxAIChat', async (req, res) => {
   try {
-    const message = req.query.message;
+    const message = req.query.text;
     if (!message) {
-      return res.status(400).json({ error: 'Parameter "message" tidak ditemukan' });
+      return res.status(400).json({ error: 'Parameter "text" tidak ditemukan' });
     }
     const response = await blackboxAIChat(message);
     res.status(200).json({
       status: 200,
-      creator: "siputzx",
-      data: { response }
+      creator,
+      result:  response
     });
   } catch (error) {
     res.status(500).json({ error: error.message });
