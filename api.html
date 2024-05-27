@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href='https://fonts.googleapis.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel=stylesheet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+<title>Xynz APIs || By Faxx</title>
+<link rel="shortcut icon" href="https://telegra.ph/file/b84188ee51b3dca7da193.jpg" type="image/x-icon">
+<link rel="icon" href="https://telegra.ph/file/b84188ee51b3dca7da193.jpg" />
+<meta name="description" content="Powered By Faxx">
+<style>
+:root {
+  --text-color: #111;
+  --text-colorbtn: #fff;
+  --bg-color: #fff;
+  --btn-color: red;
+  --btn-hover: crimson;
+  --primary-color: cyan; /* New variable for footer color */
+  --padding: none; /* New variable for common padding */
+}
+
+.light-mode {
+  --text-color: #fff;
+  --text-colorbtn: #fff;
+  --bg-color: #1f1f1f;
+  --btn-color: #303030;
+  --btn-hover: #595959;
+}
+
+body {
+  font-family: Montserrat, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  padding: var(--padding);
+  background-color: var(--bg-color);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1,
+h2,
+p {
+  font-family: Montserrat, sans-serif;
+  color: var(--text-color);
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+pre {
+  background-color: #f0f6ff;
+  padding: var(--padding);
+  border-radius: 5px;
+  overflow-x: auto;
+}
+
+.btn-container {
+  margin-left: 40px;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(100% - 80px);
+  margin: 4px;
+  background-color: var(--btn-color);
+  color: var(--text-colorbtn);
+  border: none;
+  padding: 13px;
+  text-align: left;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--btn-hover);
+}
+  .btn-containerv2 {
+    margin-top: 10px;
+  }
+  .btnv2 {
+    display: inline;
+    width: calc(100% - 40px);
+    margin-top: 1px;
+    background-color: var(--btn-color);
+    color: var(--text-colorbtn);
+    border: none;
+    padding: 6px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    border-radius: 5px;
+    cursor: none;
+    transition: none;
+  }
+  .btnv2:hover {
+    background-color: var(--btn-hover);
+  }
+  .typing-controls {
+  display: center;
+}
+.typing-controls span {
+  margin: 0px;
+  font-size: 1.4rem;
+  background: var(--bg-color);
+  outline: var(--btn-color);
+}
+.typing-controls span:hover {
+  background: none;
+}
+  footer{
+  	  font-family: 'Montserrat', sans-serif;
+        color: cyan;
+        text-align: center;
+        text-decoration: none;
+        padding-bottom: 10px;
+    }
+    span.material-symbols-rounded {
+  user-select: none;
+  cursor: pointer;
+}
+@media screen and (max-width: 600px) {
+span.material-symbols-rounded {
+    font-size: 1.25rem!important;
+  }
+}
+@media screen and (min-height: 721px) {
+	.container {
+    width: 100%;
+    padding: 20px;
+    background-color: var(--bg-color);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+	}
+	/* Header & Nav */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff; /* Light mode background */
+  z-index: 100;
+  transition: .4s;
+}
+
+.nav {
+  height: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__logo {
+  color: #E94057; /* Adjust logo color */
+  font-weight: 500;
+  transition: 0.4s;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.nav__logo:hover {
+  color: #fff; /* Light mode logo hover color */
+}
+
+.nav__list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__link {
+  color: #fff; /* Light mode link color */
+  font-size: 1.25rem;
+  padding: 0px;
+  display: flex;
+}
+
+/* Active link (optional, adjust styles if needed) */
+.active-link {
+  background: #111;
+  box-shadow: #111;
+  color: #111;
+}
+
+
+/* Change background header */
+.scroll-header {
+  box-shadow: #111;
+}
+i {
+  font-size: 1.5rem;
+  color: var(--first-color);
+  margin-right: 10px;
+}
+.menu-icon {
+  display: none; /* menyembunyikan ikon pada tampilan desktop */
+  cursor: pointer;
+}
+
+.line {
+  width: 30px;
+  height: 3px;
+  background: #333;
+  margin: 5px;
+}
+
+/* Membuat ikon muncul hanya pada tampilan mobile */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+}
+        
+  
+</style>
+</head>
+<body>
+<div class="container">
+	<header class="header" id="header">
+        <nav class="nav container">
+            <a href="/" class="nav__logo">Xynz APIs 1.9</a>
+            
+         
+            <!-- Theme Change Button -->
+            <i class='material-symbols-rounded' id="theme-btn">dark_mode</i>
+        </nav>
+    </header>
+  <br>
+  <br>
+  	<br>
+  	<br>
+  <p>Selamat Datang Di Rest APIs Saya, Xynz API adalah website yang dibuat oleh FaxxDev(Vanz) Untuk Menambahkan Fitur WhatsApp bot atau lain-lain, website ini tidak menggunakan apikey, 100% no limit dan free</p>
+
+  <h2>Artificial Intelligence</h2>
+  <div class="btn-container">
+    <a href="/api/ragbot?text=hai" class="btn">ragbot</a>
+    <a href="/api/degreeguru?text=hai" class="btn">degreeguru</a>
+    <a href="/api/pinecone?text=hai" class="btn">pinecone</a>
+    <a href="/api/smartcontract?text=hai" class="btn">smartcontract</a>
+    <a href="/api/blackboxAIChat?text=hai" class="btn">blackboxAIChat</a>
+  </div>
+  <br>
+  <div class="btn-containerv2">
+ 
+    <a href="/chatgpt" class="btnv2">ChatGPT</a>
+    <a href="https://whatsapp.com/channel/0029VaaZbDw3mFYCCtmjN81Y" class="btnv2">Channel WhatsApp</a>
+       <br><br>
+    <a href="https://github.com/faxxcoders" class="btnv2">Github</a>
+    <a onclick="openFullscreen()" class="btnv2">Full Screen</a>
+   <a onclick="tqto()" class="btnv2">Thanks To</a>
+  </div>
+  <br>
+  
+<footer>
+            <p class="footer__copy">&#169; 2024 <a href="https://wa.me/6281537668728">Faxx.</a> All right reserved.</p>
+        </footer>
+  
+ <!-- <h2>Usage</h2>
+  <p>To use the endpoints, send a GET request to the desired endpoint with the following query parameter:</p>
+  <ul>
+    <li>message: Your message content</li>
+  </ul>
+  
+  <h2>Thanks To</h2>
+  <p>The response will be in JSON format with the following structure:</p>
+  <pre>
+  {
+    "status": 200,
+    "creator": "ChatGPT",
+    "data": {
+      "response": "Response data here"
+    }
+  }
+  </pre>
+</div> -->
+ <audio autoplay>
+  <source src = "https://xynz.vercel.app/jancok.mp3" type="audio/mp3"/>
+</audio>
+<script>
+    function showTime() {
+      const date = new Date();
+      const h = date.getHours(); 
+      const m = date.getMinutes(); 
+      const s = date.getSeconds(); 
+      const time = h + ":" + m + ":" + s;
+      document.getElementById("MyClockDisplay").innerText = time;
+      setTimeout(showTime, 1000);
+  }
+
+
+  
+  const themeButton = document.querySelector('#theme-btn');
+  const loadDataFromLocalstorage = () => {
+  const asss = localStorage.getItem('themeColor');
+  document.body.classList.toggle('light-mode', asss === 'light_mode');
+  themeButton.innerText = document.body.classList.contains('light-mode') ? 'dark_mode' : 'light_mode';
+  
+};
+  themeButton.addEventListener('click', () => {
+  document.body.classList.toggle('light-mode');
+  localStorage.setItem('themeColor', themeButton.innerText);
+  themeButton.innerText = document.body.classList.contains('light-mode') ? 'dark_mode' : 'light_mode';
+});
+function openFullscreen(){let e=document.documentElement;e.requestFullscreen?e.requestFullscreen():e.mozRequestFullScreen?e.mozRequestFullScreen():e.webkitRequestFullscreen?e.webkitRequestFullscreen():e.msRequestFullscreen&&e.msRequestFullscreen()}
+function tqto() {
+	var rw = `Thanks To\n`
+	      rw += `Faxx Dev\n`
+	      rw += `Vercel\n`
+	      rw += `\nSerta Teman-teman Saya yang ikut serta dalam pembuatan rest api ini`
+	alert(rw)
+	}
+	/*document.addEventListener("DOMContentLoaded", function() {
+  Swal.fire({
+  title: "Tetot",
+  text: "Jangan Lupa Join Saluran Whatsapp Kami Untuk Melihat Update Fitur Terbaru..",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#0bd923",
+  cancelButtonColor: "#0bd9d5",
+  cancelButtonText: "Skip",
+  confirmButtonText: "Ok",
+  color: "#716add",
+  backdrop: `
+    rgba(0,0,123,0.4)
+    url("https://telegra.ph/file/e8e9db3757fbb42f83913.jpg")
+    bottom
+    no-repeat
+  `,
+showClass: {
+    popup: `
+      animate__animated
+      animate__fadeInUp
+      animate__slow
+    `
+  },
+  hideClass: {
+    popup: `
+      animate__animated
+      animate__fadeOutDown
+      animate__faster
+    `
+  }
+}).then((result) => {
+  if (result.isConfirmed) {
+    window.location.href = "https://whatsapp.com/channel/0029VaR0kxuKrWQqNH287b1i";
+  }
+});
+});
+function tos() {
+    swal.fire({
+      html: `<iframe src="https://xynz.vercel.app/chatgpt"></iframe>`,
+      confirmButtonText: 'Close'
+    })
+  };*/
+ /* Swal.fire({
+        position: 'top-end',
+        icon: 'warning',
+        title: 'Notification',
+        text: 'API ini mungkin akan update dan berbayar di masa mendatang.',
+        showConfirmButton: true,
+        confirmButtonText: "Ok",
+        timer: 5000,
+        toast: true,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+           toast.onmouseenter = Swal.stopTimer;
+          toast.onmouseleave = Swal.resumeTimer;
+        },
+        
+        customClass: {
+          container: 'swal-wide'
+        }
+      });*/
+loadDataFromLocalstorage();
+showTime();
+  
+</script>
+</body>
+</html>
